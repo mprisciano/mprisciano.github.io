@@ -1,158 +1,409 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="images/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Michelangelo Prisciano</title>
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Michelangelo Prisciano</title>
-  <meta name="author" content="Michelangelo Prisciano">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <!-- <a href="#home" class="logo">
+          <span class="logo-bracket">{</span><span class="logo-first">Michelangelo</span
+          ><span class="logo-second">Prisciano</span><span class="logo-bracket">}</span>
+        </a> -->
 
-<body>
-  <table
-    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:2.5%;width:63%;vertical-align:middle">
-                  <p class="name" style="text-align: center;">
-                    Michelangelo Prisciano
-                  </p>
-                  <p>
-                    I'm a Computer Science student at <b>University of Dundee</b> with prior experience as a
-                    <b>Software Engineer @ Expedia Group, London</b>.<br /><br />
-                    I enjoy building tools that make people's life easier.
-                  </p>
-                  <p style="text-align:center">
-                    <a href="mailto:mpris@protonmail.ch">Email</a> &nbsp;/&nbsp;
-                    <a href="data/prisciano-resume.pdf" target="_blank">CV</a> &nbsp;/&nbsp;
-                    <a href="https://github.com/mprisciano/" target="_blank">Github</a> &nbsp;/&nbsp;
-                    <a href="https://www.linkedin.com/in/mpris/" target="_blank">LinkedIn</a>
-                  </p>
-                </td>
-                <td style="padding:2.5%;width:37%;max-width:37%">
-                  <a href="images/me.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;"
-                      alt="profile photo" src="images/me.jpg" class="hoverZoomLink"></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <!-- <a href="#about">About Me</a> -->
+          <a href="#experience">Education &amp; Experiences</a>
+          <a href="#projects">Projects &amp; Skills</a>
+          <a href="#notes">Lecture Notes</a>
+          <a href="#contact">Contact</a>
+        </div>
 
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:16px;width:100%;vertical-align:middle">
-                  <h2>Lecture Notes</h2>
-                  <p>A collection of my personal notes from various modules.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table
-            style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:8px;width:33.33%;vertical-align:top">
-                  <b>
-                    <p>Year 2</p>
-                  </b>
-                  <p style="margin-top:8px;">
-                    <a href="data/operating_systems_notes.pdf" target="_blank">Operating Systems</a><br />
-                    <a href="data/multi_paradigm_programming_notes.pdf" target="_blank">Multi-Paradigm Programming</a><br />
-                  </p>
-                </td>
-                <td style="padding:8px;width:33.33%;vertical-align:top">
-                  <b>
-                    <p>Year 3</p>
-                  </b>
-                  <p style="margin-top:8px;">
-                  </p>
-                </td>
-                <td style="padding:8px;width:33.33%;vertical-align:top">
-                  <b>
-                    <p>Year 4</p>
-                  </b>
-                  <p style="margin-top:8px;">
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+        >
+          <svg
+            class="icon-moon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg
+            class="icon-sun"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            />
+          </svg>
+        </button>
 
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:16px;width:100%;vertical-align:middle">
-                  <h2>Side Projects</h2>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table
-            style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one">
-                    <img src='images/ai-blackjack.png' width="160">
-                  </div>
-                </td>
-                <td style="padding:8px;width:80%;vertical-align:top">
-                  <br>
-                  <b>
-                    <p>AI & Blackjack</p>
-                  </b>
-                  <b>Role: </b><i>Contributor</i>
-                  <br /><br />
-                  This Year 2 team project focused on developing an autonomous agent who plays the popular card 
-                  game "Blackjack". I was responsible for conducting the foundational research, designing the experiments to
-                  evaluate the agent performance and implementing the reinforcement learning method using Deep Q-Learning.
-                  The project report can be accessed <a href="data/ai-blackjack.pdf" target="_blank">here</a>.
-                  <br>
-                  <p></p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table
-            style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr bgcolor="#ffffd0">
-                <td style="padding:16px;width:20%;vertical-align:middle">
-                  <div class="one">
-                    <img src='images/study-app.PNG' width="160">
-                  </div>
-                </td>
-                <td style="padding:8px;width:80%;vertical-align:top">
-                  <br>
-                  <b>
-                    <p>Too Much Study</p>
-                  </b>
-                  <b>Role: </b><i>Core Developer</i>
-                  <br /><br />
-                  A study tracking app for iOS devices built using SwiftUI that provides a clean
-                  and visual way to monitor learning habits while building consistency over time.
-                  This project served as a good introduction to iOS development and
-                  the Apple ecosystem in general.<br /><br />
-                  This app is currently in beta testing and will be available soon on the App Store.
-                  <br>
-                  <p></p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</body>
+        <button class="nav-burger" id="navBurger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
 
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-left"></div>
+
+      <div class="hero-content">
+        <!-- Image card -->
+        <div class="hero-card image fade-in">
+          <div class="hero-photo">
+            <div class="photo-stack">
+              <img
+                src="images/me.png"
+                alt="Portrait photo"
+                class="photo-base"
+              />
+              <img
+                src="images/me.png"
+                alt=""
+                aria-hidden="true"
+                class="photo-gray"
+              />
+            </div>
+          </div>
+          <div class="hero-socials">
+            <a
+              href="https://www.linkedin.com/in/mpris"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.5 0h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 7v7.44h-4.56v-6.6c0-1.57-.03-3.59-2.19-3.59-2.19 0-2.52 1.71-2.52 3.48V22H7.72V8z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.github.com/mprisciano"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.38-3.87-1.38-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"
+                />
+              </svg>
+            </a>
+            <a href="mailto:mpris@proton.me" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm10 9.5L22.4 7H1.6L12 13.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Text card -->
+        <div class="hero-card text fade-in delay">
+          <h1>
+            <strong>Hello!</strong>
+            <span>I'm Michelangelo</span>
+          </h1>
+          <p>I enjoy building tools that make people's life easier.</p>
+
+          <div class="buttons">
+            <a
+              href="data/prisciano-resume.pdf"
+              class="btn btn-filled"
+              target="_blank"
+              rel="noopener"
+              >RESUME</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </a>
+    </section>
+
+    <!-- ABOUT -->
+    <!-- <section id="about" class="section about">
+      <div class="content">
+        <h2 class="fade-in"><strong>About Me</strong></h2>
+        <p class="fade-in delay">
+          I'm Michelangelo, a developer passionate about building useful, ethical
+          software. I have experience across full-stack web development,
+          AI/ML, and infrastructure, and I love turning hard problems into
+          clean, reliable products. I'm currently looking for opportunities
+          where I can keep learning and ship work that matters.
+        </p>
+      </div>
+
+      <span class="corner corner-tl"></span>
+      <span class="corner corner-br"></span>
+    </section> -->
+
+    <!-- EDUCATION & EXPERIENCE -->
+    <section id="experience" class="section experience">
+      <div class="exp-banner" aria-hidden="true">
+        <span class="banner-curve banner-curve-yellow"></span>
+      </div>
+
+      <div class="exp-wrap">
+        <h2 class="center fade-in">Education &amp; Experiences</h2>
+
+        <div class="exp-content">
+          <h3 class="exp-heading fade-in">Education</h3>
+
+          <article class="exp-card fade-in">
+            <div class="exp-logo">
+              <img src="images/dundee_logo.jpg" alt="University of Dundee" />
+            </div>
+            <div class="exp-body">
+              <span class="exp-date"
+                >September 2025 - June 2028 (Expected)</span
+              >
+              <h4>University of Dundee • 4.0 GPA</h4>
+              <p class="role">BSc (Hons) Computer Science</p>
+              <!-- <p class="coursework-label">Relevant Modules:</p>
+              <ul>
+                <li>Introduction to AI & ML</li>
+                <li>Multi-Paradigm Programming (C/C++)</li>
+                <li>Discrete Mathematics</li>
+                <li>Core Mathematics IV</li>
+              </ul> -->
+            </div>
+          </article>
+
+          <h3 class="exp-heading fade-in">Work Experience</h3>
+
+          <article class="exp-card fade-in">
+            <div class="exp-logo">
+              <img src="images/expedia_logo.jpg" alt="Expedia Group" />
+            </div>
+            <div class="exp-body">
+              <span class="exp-date">June 2022 - October 2025</span>
+              <h4>Software Engineer</h4>
+              <p class="role">Expedia Group • London, UK</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <span class="banner-curve banner-curve-blue" aria-hidden="true"></span>
+    </section>
+
+    <!-- PROJECTS & SKILLS -->
+    <section id="projects" class="section projects">
+      <div class="exp-banner" aria-hidden="true">
+        <span class="banner-curve banner-curve-yellow-left"></span>
+      </div>
+
+      <div class="proj-wrap">
+        <h2 class="center fade-in">Projects &amp; Skills</h2>
+
+        <div class="project-list">
+          <article class="project-row fade-in">
+            <div class="project-image">
+              <img
+                src="images/ai-blackjack.png"
+                alt="AI & Blackjack project screenshot"
+              />
+            </div>
+            <div class="project-body">
+              <h3>AI &amp; Blackjack</h3>
+              <p class="project-role">
+                <strong>Role:</strong> <em>Contributor</em>
+              </p>
+              <p>
+                This Year 2 team project focused on developing an autonomous
+                agent who plays the popular card game "Blackjack". I was
+                responsible for conducting the foundational research, designing
+                the experiments to evaluate the agent performance and
+                implementing the reinforcement learning method using Deep
+                Q-Learning. The project report can be accessed
+                <a
+                  href="data/ai-blackjack.pdf"
+                  class="inline-link"
+                  target="_blank"
+                  >here</a
+                >.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-row fade-in">
+            <div class="project-image">
+              <img
+                src="images/study-app.PNG"
+                alt="Too Much Study app screenshot"
+              />
+            </div>
+            <div class="project-body">
+              <h3>Too Much Study</h3>
+              <p class="project-role">
+                <strong>Role:</strong> <em>Core Developer</em>
+              </p>
+              <p>
+                A study tracking app for iOS devices built using SwiftUI that
+                provides a clean and visual way to monitor learning habits while
+                building consistency over time. This project served as a good
+                introduction to iOS development and the Apple ecosystem in
+                general.
+              </p>
+              <p>
+                This app is currently in beta testing and will be available soon
+                on the App Store.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="center skills-heading fade-in">Technical Skills</h3>
+        <div class="skills fade-in">
+          <span>C/C++</span>
+          <span>Python</span>
+          <span>Java</span>
+          <span>Node.js</span>
+          <span>Docker</span>
+          <span>AWS</span>
+          <span>PyTorch</span>
+          <span>SwiftUI</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LECTURE NOTES -->
+    <section id="notes" class="section notes">
+      <div class="exp-banner" aria-hidden="true">
+        <span class="banner-curve banner-curve-yellow"></span>
+      </div>
+
+      <div class="notes-wrap">
+        <h2 class="center fade-in">Lecture Notes</h2>
+        <p class="notes-intro center fade-in">
+          A collection of my personal notes from various modules.
+        </p>
+
+        <div class="notes-grid">
+          <div class="notes-col fade-in">
+            <h3>Year 2</h3>
+            <ul>
+              <li>
+                <a
+                  href="data/multi_paradigm_programming_notes.pdf"
+                  target="_blank"
+                  >Multi-Paradigm Programming</a
+                >
+              </li>
+              <li>
+                <a href="data/operating_systems_notes.pdf" target="_blank"
+                  >Operating Systems</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="notes-col fade-in">
+            <h3>Year 3</h3>
+            <ul></ul>
+          </div>
+
+          <div class="notes-col fade-in">
+            <h3>Year 4</h3>
+            <ul></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact" class="footer">
+      <div class="footer-top">
+        <a href="#home" class="logo">
+          <span class="logo-bracket">{</span
+          ><span class="logo-first">Michelangelo</span
+          ><span class="logo-second">Prisciano</span
+          ><span class="logo-bracket">}</span>
+        </a>
+
+        <a href="#home" class="back-to-top">Back to Top ↑</a>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.5 0h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 7v7.44h-4.56v-6.6c0-1.57-.03-3.59-2.19-3.59-2.19 0-2.52 1.71-2.52 3.48V22H7.72V8z"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.38-3.87-1.38-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"
+              />
+            </svg>
+          </a>
+          <a href="mailto:you@email.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm10 9.5L22.4 7H1.6L12 13.5z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <div class="footer-info">
+          <p><strong>Email:</strong><br />mpris@proton.me</p>
+        </div>
+      </div>
+
+      <p class="footer-meta">
+        © <span id="year"></span> Michelangelo Prisciano • All rights reserved
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
