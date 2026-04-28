@@ -37,7 +37,11 @@ html {
 
 body {
   margin: 0;
-  font-family: "Encode Sans", system-ui, -apple-system, sans-serif;
+  font-family:
+    "Encode Sans",
+    system-ui,
+    -apple-system,
+    sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -260,8 +264,7 @@ p {
 
 .photo-stack .photo-base,
 .photo-stack .photo-gray {
-  filter:
-    drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff)
+  filter: drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff)
     drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff)
     drop-shadow(2px 2px 0 #fff) drop-shadow(-2px -2px 0 #fff)
     drop-shadow(2px -2px 0 #fff) drop-shadow(-2px 2px 0 #fff)
@@ -271,12 +274,11 @@ p {
 .photo-stack .photo-gray {
   position: absolute;
   inset: 0;
-  filter:
-    grayscale(100%) contrast(1.05)
-    drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff)
-    drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff)
-    drop-shadow(2px 2px 0 #fff) drop-shadow(-2px -2px 0 #fff)
-    drop-shadow(2px -2px 0 #fff) drop-shadow(-2px 2px 0 #fff);
+  filter: grayscale(100%) contrast(1.05) drop-shadow(3px 0 0 #fff)
+    drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff)
+    drop-shadow(0 -3px 0 #fff) drop-shadow(2px 2px 0 #fff)
+    drop-shadow(-2px -2px 0 #fff) drop-shadow(2px -2px 0 #fff)
+    drop-shadow(-2px 2px 0 #fff);
   clip-path: inset(0 0 0 0);
   transition: clip-path 0.6s ease;
 }
@@ -909,6 +911,15 @@ p {
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
+  .nav-container {
+    justify-content: flex-start;
+    gap: 1rem;
+    padding-right: 4.2rem;
+  }
+  .nav-burger {
+    display: flex;
+    order: -1;
+  }
   .nav-links {
     display: none;
     position: absolute;
@@ -921,9 +932,6 @@ p {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   }
   .nav-links.open {
-    display: flex;
-  }
-  .nav-burger {
     display: flex;
   }
 
