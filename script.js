@@ -61,9 +61,20 @@ function readCounterApiConfig() {
   const raw = window.COUNTER_API_CONFIG;
   const c =
     typeof raw === "object" && raw !== null ? raw : Object.create(null);
+  let namespace = typeof c.namespace === "string" ? c.namespace.trim() : "";
+
+  /** Default CounterAPI namespace for GitHub Pages (avoids forgetting inline config after deploy). */
+  if (
+    !namespace &&
+    typeof location !== "undefined" &&
+    /\.github\.io$/i.test(location.hostname || "")
+  ) {
+    namespace = `${String(location.hostname).replace(/\./g, "-")}-notes`;
+  }
+
   return {
     version: c.version === "v2" ? "v2" : "v1",
-    namespace: typeof c.namespace === "string" ? c.namespace.trim() : "",
+    namespace,
     workspace: typeof c.workspace === "string" ? c.workspace.trim() : "",
     accessToken: typeof c.accessToken === "string" ? c.accessToken.trim() : "",
   };
@@ -108,7 +119,7 @@ function counterUrl(cfg, counterName, action) {
 }
 
 function counterFetchHeaders(cfg) {
-  const h = { Accept: "application/json" };
+  const h = {};
   if (cfg.version === "v2") h.Authorization = `Bearer ${cfg.accessToken}`;
   return h;
 }
@@ -116,79 +127,93 @@ function counterFetchHeaders(cfg) {
 async function counterApiGet(cfg, counterName) {
   const url = counterUrl(cfg, counterName, "get");
   if (!url) return null;
-  const res = await fetch(url, {
-    headers: counterFetchHeaders(cfg),
-    redirect: "follow",
-  });
-  /** Counter exists only after the first `/up`; API returns HTTP 404 until then. */
-  if (res.status === 404) return { count: 0 };
-  if (!res.ok) return null;
-  const data = await res.json().catch(() => null);
-  const count = extractCount(data);
-  return count !== null ? { count } : null;
+  try {
+    const res = await fetch(url, {
+      method: "GET",
+      credentials: "omit",
+      mode: "cors",
+      headers: counterFetchHeaders(cfg),
+      redirect: "follow",
+    });
+    /** Counter exists only after the first `/up`; API returns HTTP 404 until then. */
+    if (res.status === 404) return { count: 0 };
+    if (!res.ok) return null;
+    const data = await res.json().catch(() => null);
+    const count = extractCount(data);
+    return count !== null ? { count } : null;
+  } catch {
+    return null;
+  }
 }
 
 async function counterApiUp(cfg, counterName) {
   const url = counterUrl(cfg, counterName, "up");
   if (!url) return null;
-  const res = await fetch(url, {
-    headers: counterFetchHeaders(cfg),
-    redirect: "follow",
-  });
-  if (!res.ok) return null;
-  return res.json().catch(() => null);
+  try {
+    const res = await fetch(url, {
+      method: "GET",
+      credentials: "omit",
+      mode: "cors",
+      headers: counterFetchHeaders(cfg),
+      redirect: "follow",
+    });
+    if (!res.ok) return null;
+    return res.json().catch(() => null);
+  } catch {
+    return null;
+  }
 }
 
 async function initCounterApiLabels() {
-  const cfg = readCounterApiConfig();
-  if (!counterConfigured(cfg)) return;
+  try {
+    const cfg = readCounterApiConfig();
+    if (!counterConfigured(cfg)) return;
 
-  const anchors = [...document.querySelectorAll("a[data-counter-name]")];
-  if (anchors.length === 0) return;
+    const anchors = [...document.querySelectorAll("a[data-counter-name]")];
+    if (anchors.length === 0) return;
 
-  const names = [
-    ...new Set(
-      anchors
-        .map((a) => a.getAttribute("data-counter-name"))
-        .filter((n) => n && /^[\w.-]{1,128}$/.test(n)),
-    ),
-  ];
-  if (names.length === 0) return;
+    const names = [
+      ...new Set(
+        anchors
+          .map((a) => a.getAttribute("data-counter-name"))
+          .filter((n) => n && /^[\w.-]{1,128}$/.test(n)),
+      ),
+    ];
+    if (names.length === 0) return;
 
-  await Promise.all(
-    names.map(async (counterName) => {
-      const fetched = await counterApiGet(cfg, counterName);
+    await Promise.all(
+      names.map(async (counterName) => {
+        const fetched = await counterApiGet(cfg, counterName);
 
-      anchors.forEach((a) => {
-        if (a.getAttribute("data-counter-name") !== counterName) return;
+        anchors.forEach((a) => {
+          if (a.getAttribute("data-counter-name") !== counterName) return;
+          const meta = a.closest("li")?.querySelector(".download-count-meta");
+          if (!meta) return;
+
+          if (fetched !== null && typeof fetched.count === "number") {
+            meta.textContent = counterLabel(fetched.count);
+          } else {
+            meta.textContent = "";
+          }
+        });
+      }),
+    );
+
+    anchors.forEach((a) => {
+      const counterName = a.getAttribute("data-counter-name");
+      if (!counterName || !/^[\w.-]{1,128}$/.test(counterName)) return;
+
+      a.addEventListener("click", () => {
         const meta = a.closest("li")?.querySelector(".download-count-meta");
-        if (!meta) return;
-
-        if (fetched !== null && typeof fetched.count === "number") {
-          meta.textContent = counterLabel(fetched.count);
-        } else {
-          meta.textContent = "";
-        }
-      });
-    }),
-  );
-
-  anchors.forEach((a) => {
-    const counterName = a.getAttribute("data-counter-name");
-    if (
-      !counterName ||
-      !/^[\w.-]{1,128}$/.test(counterName)
-    )
-      return;
-
-    a.addEventListener("click", () => {
-      const meta = a.closest("li")?.querySelector(".download-count-meta");
-      void counterApiUp(cfg, counterName).then((payload) => {
-        const next = extractCount(payload);
-        if (next !== null && meta) meta.textContent = counterLabel(next);
+        void counterApiUp(cfg, counterName).then((payload) => {
+          const next = extractCount(payload);
+          if (next !== null && meta) meta.textContent = counterLabel(next);
+        });
       });
     });
-  });
+  } catch (e) {
+    console.warn("CounterAPI counters failed:", e);
+  }
 }
 
 initCounterApiLabels();
