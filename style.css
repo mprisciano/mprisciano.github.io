@@ -801,18 +801,94 @@ p {
   margin: 0;
 }
 
-.notes-col ul li {
-  margin-bottom: 0.45rem;
+.notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
 }
 
-.notes-col a {
+.note-download-item {
+  margin: 0;
+}
+
+.note-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.65rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: color-mix(in srgb, var(--primary) 35%, var(--border));
+}
+
+.note-card-link {
+  display: inline-block;
   color: var(--primary);
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 0.96rem;
+  line-height: 1.35;
+  text-decoration: none;
+  transition:
+    color 0.18s ease,
+    text-underline-offset 0.18s ease;
 }
 
-.notes-col a:hover {
+.note-card-link:hover {
+  color: var(--primary-dark);
   text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.download-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.72rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 13%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
+}
+
+.download-count-icon {
+  flex-shrink: 0;
+  opacity: 0.92;
+}
+
+.download-count-meta {
+  line-height: 1.2;
+  color: inherit;
+}
+
+.download-count-meta:empty {
+  display: none;
+}
+
+.download-count-badge:has(.download-count-meta:empty) {
+  display: none;
 }
 
 /* ================= FOOTER ================= */

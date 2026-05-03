@@ -327,18 +327,70 @@
         <div class="notes-grid">
           <div class="notes-col fade-in">
             <h3>Year 2</h3>
-            <ul>
-              <li>
-                <a
-                  href="data/multi_paradigm_programming_notes.pdf"
-                  target="_blank"
-                  >Multi-Paradigm Programming</a
-                >
+            <ul class="notes-list">
+              <li class="note-download-item">
+                <article class="note-card">
+                  <a
+                    class="note-card-link"
+                    href="data/multi_paradigm_programming_notes.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-counter-name="multi-paradigm-notes"
+                    >Multi-Paradigm Programming</a
+                  >
+                  <span class="download-count-badge">
+                    <svg
+                      class="download-count-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" x2="12" y1="15" y2="3" />
+                    </svg>
+                    <span class="download-count-meta" aria-live="polite"></span>
+                  </span>
+                </article>
               </li>
-              <li>
-                <a href="data/operating_systems_notes.pdf" target="_blank"
-                  >Operating Systems</a
-                >
+              <li class="note-download-item">
+                <article class="note-card">
+                  <a
+                    class="note-card-link"
+                    href="data/operating_systems_notes.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-counter-name="operating-systems-notes"
+                    >Operating Systems</a
+                  >
+                  <span class="download-count-badge">
+                    <svg
+                      class="download-count-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" x2="12" y1="15" y2="3" />
+                    </svg>
+                    <span class="download-count-meta" aria-live="polite"></span>
+                  </span>
+                </article>
               </li>
             </ul>
           </div>
@@ -404,6 +456,12 @@
       </p>
     </footer>
 
+    <script>
+      window.COUNTER_API_CONFIG = {
+        version: "v1",
+        namespace: "mprisciano-github-io-notes",
+      };
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
